@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "regions": ["fra1"],
+  "functions": {
+    "api/targets.mjs": { "maxDuration": 30 },
+    "api/alerts.mjs": { "maxDuration": 15 },
+    "api/feed.mjs": { "maxDuration": 20 },
+    "api/stats.mjs": { "maxDuration": 10 },
+    "api/stats-sync.mjs": { "maxDuration": 60 }
+  },
+  "crons": [
+    { "path": "/api/stats-sync", "schedule": "0 4 * * *" }
+  ]
+}
